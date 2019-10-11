@@ -1,0 +1,109 @@
+FORMAT: 1A
+HOST: http://instructional.apiblueprint.org/
+
+# Library
+
+This is a demo API used by the UK Cloud Native and Integration Sales Engineering team PaaS demos. 
+Specifically a demo covering MicrosServices, API Platform and OIC Integration.
+
+This is an Example of an API provided for an an Educational Institution.
+
+
+
+
+The Library API provides powerful online tools for educational institutions
+
+## Base Collection [/]
+
+Lists all top level resources
+
+### List All Resources [GET]
+
++ Request
+
+    + Headers
+    
+            content-type: application/json; charset=utf-8 
+            
++ Response 200 (application/json;application/json; charset=utf-8)
+
+        ["Catalog","Instructors","Students","Support","Blog"]
+
+## Instructors Collection [/instructors]
+
+Lists all Instructor resources
+
+### List All Instructors [GET]
+
++ Response 200 (application/json)
+
+        ["Disciplines","Features","Resources","Purchasing","Getting Started"]
+
+## Disciplines Collection [/instructors/disciplines]
+
+Lists all Disciplines
+
+### List All Disciplines [GET]
+
++ Response 200 (application/json)
+
+        ["Astronomy","Biology","Chemistry","Physics","Developmental Math","Advanced Math","Precalculus","Calculus","All Mathmatics","Statistics"]
+
+## Textbooks by Discipline [/instructors/disciplines/{discipline}]
+
+Return the textbooks available for the discipline
+
+### View Textbooks by Discipline [GET]
+
++ Parameters
+    + discipline: Astronomy (string) - Discipline.
+    
++ Request
+
+    + Headers
+    
+            tenant-id: 1 (number) - Customer's tenant-id
+            api-key: f3ae03ca-0937-4510-be76-775d6ada45e2 (number) 
+            
++ Response 200 (application/json)
+
+        [
+            {
+                "title": "The Cosmic Mock Perspective, 2nd edition",
+                "authors": [
+                    "Bennett",
+                    "Donahue",
+                    "Schneider",
+                    "Voit"
+                ],
+                "publisher": "Pearson Education",
+                "cover_image": "http://www.webassign.net/bdsvastro/BDSVastr02_cover_sm.jpg"
+            },
+            {
+                "title": "Mock Astronomy Today, 8th edition",
+                "authors": [
+                    "Chaisson ",
+                    "McMillan"
+                ],
+                "publisher": "Mock Pearson Education",
+                "cover_image": "http://www.webassign.net/chaastrot8/chaastrot8_cover_sm.jpg"
+            },
+            {
+                "title": "Astronomy: A Beginner's Guide to the Universe, 5th edition",
+                "authors": [
+                    "Chaisson ",
+                    "McMillan"
+                ],
+                "publisher": "Pearson Education",
+                "cover_image": "http://www.webassign.net/bg/bg5_cover_sm.jpg"
+            },
+            {
+                "title": "Astronomy For Dummies",
+                "authors": [
+                    "Stephen P. Maran"
+                ],
+                "publisher": "John Wiley & Sons",
+                "cover_image": "https://images-na.ssl-images-amazon.com/images/I/51g7f4qEO-L._SX393_BO1,204,203,200_.jpg"
+            }
+            
+        ]
